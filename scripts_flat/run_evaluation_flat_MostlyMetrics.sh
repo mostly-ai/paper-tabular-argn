@@ -1,0 +1,88 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "df1a27e0-a607-44ab-8f24-48920bf338c3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# MOSTLY QA evaluation"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "5925bcb3-4aed-475f-b7d3-007c3af8f3e6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import webbrowser\n",
+    "from mostlyai import qa\n",
+    "import plotly.express as px"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "6d9df5df-87c4-45dd-bd69-63d18e084b60",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "model = ['mostly_DP']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "9ef3bbb8-ea36-4556-9f29-f497096f3f12",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "trn = pd.read_csv('train.csv')\n",
+    "hol = pd.read_csv('test.csv')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "cab9255e-b151-4591-b3c8-05ae1c6d50f4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "syn = pd.read_csv(f'{model}.csv')\n",
+    "report_path, metrics = qa.report(\n",
+    "syn_tgt_data=syn,\n",
+    "trn_tgt_data=trn,\n",
+    "hol_tgt_data=hol,\n",
+    "#max_sample_size_embeddings=1000\n",
+    "report_path=f'{model}_report.html'\n",
+    ")\n",
+    "# pretty print metrics\n",
+    "print(metrics.model_dump_json(indent=4))"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python (mostly-core)",
+   "language": "python",
+   "name": "mostly-core"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,93 @@
+{
+    "tables": {
+        "california": {
+            "primary_key": "individual_id",
+            "sequence_key": "household_id",
+            "columns": {
+                "household_id": {
+                    "sdtype": "id"
+                },
+                "FARM": {
+                    "sdtype": "categorical"
+                },
+                "OWNERSHP": {
+                    "sdtype": "categorical"
+                },
+                "ACREHOUS": {
+                    "sdtype": "categorical"
+                },
+                "TAXINCL": {
+                    "sdtype": "categorical"
+                },
+                "PROPINSR": {
+                    "sdtype": "numerical"
+                },
+                "COSTELEC": {
+                    "sdtype": "numerical"
+                },
+                "VALUEH": {
+                    "sdtype": "numerical"
+                },
+                "ROOMS": {
+                    "sdtype": "categorical"
+                },
+                "PLUMBING": {
+                    "sdtype": "categorical"
+                },
+                "PUMA": {
+                    "sdtype": "numerical"
+                },
+                "individual_id": {
+                    "sdtype": "id"
+                },
+                "RELATE": {
+                    "sdtype": "categorical"
+                },
+                "SEX": {
+                    "sdtype": "categorical"
+                },
+                "AGE": {
+                    "sdtype": "numerical"
+                },
+                "MARST": {
+                    "sdtype": "categorical"
+                },
+                "RACE": {
+                    "sdtype": "categorical"
+                },
+                "CITIZEN": {
+                    "sdtype": "categorical"
+                },
+                "SPEAKENG": {
+                    "sdtype": "categorical"
+                },
+                "SCHOOL": {
+                    "sdtype": "categorical"
+                },
+                "EDUC": {
+                    "sdtype": "numerical"
+                },
+                "GRADEATT": {
+                    "sdtype": "categorical"
+                },
+                "SCHLTYPE": {
+                    "sdtype": "categorical"
+                },
+                "EMPSTAT": {
+                    "sdtype": "categorical"
+                },
+                "CLASSWKR": {
+                    "sdtype": "categorical"
+                },
+                "INCTOT": {
+                    "sdtype": "numerical"
+                },
+                "DISABWRK": {
+                    "sdtype": "categorical"
+                }
+            }
+        }
+    },
+    "relationships": [],
+    "METADATA_SPEC_VERSION": "V1"
+}

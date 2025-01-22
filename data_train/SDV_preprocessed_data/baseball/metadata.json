@@ -1,0 +1,76 @@
+{
+    "tables": {
+        "baseball": {
+            "sequence_key": "playerID",
+            "columns": {
+                "playerID": {
+                    "sdtype": "id"
+                },
+                "birthCountry": {
+                    "sdtype": "categorical"
+                },
+                "birthDate": {
+                    "sdtype": "datetime",
+                    "datetime_format": "%Y-%m-%d"
+                },
+                "deathDate": {
+                    "sdtype": "datetime",
+                    "datetime_format": "%Y-%m-%d"
+                },
+                "nameFirst": {
+                    "sdtype": "categorical"
+                },
+                "nameLast": {
+                    "sdtype": "categorical"
+                },
+                "weight": {
+                    "sdtype": "numerical"
+                },
+                "height": {
+                    "sdtype": "numerical"
+                },
+                "bats": {
+                    "sdtype": "categorical"
+                },
+                "throws": {
+                    "sdtype": "categorical"
+                },
+                "yearID": {
+                    "sdtype": "numerical"
+                },
+                "teamID": {
+                    "sdtype": "categorical"
+                },
+                "lgID": {
+                    "sdtype": "categorical"
+                },
+                "POS": {
+                    "sdtype": "categorical"
+                },
+                "G": {
+                    "sdtype": "numerical"
+                },
+                "GS": {
+                    "sdtype": "numerical"
+                },
+                "InnOuts": {
+                    "sdtype": "numerical"
+                },
+                "PO": {
+                    "sdtype": "numerical"
+                },
+                "A": {
+                    "sdtype": "numerical"
+                },
+                "E": {
+                    "sdtype": "numerical"
+                },
+                "DP": {
+                    "sdtype": "numerical"
+                }
+            }
+        }
+    },
+    "relationships": [],
+    "METADATA_SPEC_VERSION": "V1"
+}
