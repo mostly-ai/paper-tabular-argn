@@ -9,7 +9,7 @@ from mostlyai.engine import split, encode, analyze, train, generate
 logging.basicConfig(level=logging.INFO, stream=sys.stdout, format="[%(asctime)s] %(levelname)-7s: %(message)s", datefmt='%Y-%m-%d %H:%M:%S')
 
 
-DATASETS = [ 'adult']
+DATASETS = [ 'adult', 'acs-income']
 base_path = Path(__file__).resolve().parent.parent
 
 data_path = base_path / "data_train"
