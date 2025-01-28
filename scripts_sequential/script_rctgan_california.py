@@ -10,7 +10,9 @@ from rctgan.relational import RCTGAN
 from warnings import simplefilter
 simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
 
-wdir = Path('data/california/train')
+base_path = Path(__file__).resolve().parent.parent
+
+wdir = base_path / 'data_train'
 
 datasets = {
     'california':{
@@ -137,8 +139,8 @@ metadata = Metadata()
 table_names = list(datasets['california']['tables'].keys())
 primary_key = datasets['california']['primary_key']
 foreign_key = datasets['california']['foreign_key']
-df_parent = pd.read_parquet(wdir / 'household')
-df_child = pd.read_parquet(wdir / 'individual')
+df_parent = pd.read_parquet(wdir / 'california-household-train.parquet')
+df_child = pd.read_parquet(wdir / 'california-individual-train.parquet')
 
 tables = dict(zip(table_names, [df_parent,df_child]))
 

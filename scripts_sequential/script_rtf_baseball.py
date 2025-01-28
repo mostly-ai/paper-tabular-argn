@@ -5,9 +5,11 @@ from pathlib import Path
 
 from realtabformer import REaLTabFormer
 
-dataset_dir = Path(f'data/baseball/train')
-parent_df = pd.read_parquet(dataset_dir / 'players')
-child_df = pd.read_parquet(dataset_dir / 'fielding')
+base_path = Path(__file__).resolve().parent.parent
+
+dataset_dir = base_path / 'data_train'
+parent_df = pd.read_parquet(dataset_dir / 'baseball-players-train.parquet')
+child_df = pd.read_parquet(dataset_dir / 'baseball-fielding-train.parquet')
 join_on = "playerID"
 
 t0 = time.time()

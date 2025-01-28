@@ -6,10 +6,12 @@ from sdv.metadata import Metadata
 from sdv.utils import drop_unknown_references
 from sdv.multi_table import HMASynthesizer
 
-dataset_dir = Path(f'data/baseball/')
+base_path = Path(__file__).resolve().parent.parent
+
+dataset_dir = base_path / 'data_train'
 data = {
-        'players': pd.read_parquet(dataset_dir / 'players'),
-        'fielding': pd.read_parquet(dataset_dir / 'fielding')
+        'players': pd.read_parquet(dataset_dir / 'baseball-players-train.parquet'),
+        'fielding': pd.read_parquet(dataset_dir / 'baseball-fielding-train.parquet')
     }
 metadata = Metadata.detect_from_dataframes(data=data)
 metadata.update_column(column_name='playerID', table_name='fielding', sdtype='id')

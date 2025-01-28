@@ -8,14 +8,16 @@ import logging
 from mostlyai.engine import split, encode, analyze, train, generate
 logging.basicConfig(level=logging.INFO, stream=sys.stdout, format="[%(asctime)s] %(levelname)-7s: %(message)s", datefmt='%Y-%m-%d %H:%M:%S')
 
-ctx_fn = 'data/baseball/train/players/players.parquet'
-tgt_fn = 'data/baseball/train/fielding/fielding.parquet'
+base_path = Path(__file__).resolve().parent.parent
+
+ctx_fn = base_path / 'data_train' / 'baseball-players-train.parquet'
+tgt_fn = base_path / 'data_train' / 'baseball-fielding-train.parquet'
 
 ctx = pd.read_parquet(ctx_fn)
 tgt = pd.read_parquet(tgt_fn)
 
-ws_dir = Path('sequential-ws')
-flat_ws_dir = Path('flat-ws')
+ws_dir = Path('baseball_sequential-ws')
+flat_ws_dir = Path('baseball_flat-ws')
 
 primary_key = 'playerID'
 foreign_key = 'playerID'

@@ -6,8 +6,9 @@ from sdv.metadata import Metadata
 from sdv.utils import get_random_sequence_subset
 from sdv.sequential import PARSynthesizer
 
+base_path = Path(__file__).resolve().parent.parent
 
-dataset_dir = Path(f'data/baseball')
+dataset_dir = base_path / 'data_train' / 'SDV_preprocessed_data' / 'baseball'
 data = pd.read_parquet(dataset_dir / 'data.parquet')
 metadata = Metadata.load_from_json(filepath=dataset_dir / 'metadata.json')
 context_cols = ['birthCountry','birthDate','deathDate','nameFirst','nameLast','weight','height','bats','throws']

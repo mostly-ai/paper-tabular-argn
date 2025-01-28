@@ -8,23 +8,26 @@ import logging
 from mostlyai.engine import split, encode, analyze, train, generate
 logging.basicConfig(level=logging.INFO, stream=sys.stdout, format="[%(asctime)s] %(levelname)-7s: %(message)s", datefmt='%Y-%m-%d %H:%M:%S')
 
-ctx_fn = 'data/california/train/household/household.parquet'
-tgt_fn = 'data/california/train/individual/individual.parquet'
+base_path = Path(__file__).resolve().parent.parent
+
+ctx_fn = base_path / 'data_train' / 'california-household-train.parquet'
+tgt_fn = base_path / 'data_train' / 'california-individual-train.parquet'
 
 ctx = pd.read_parquet(ctx_fn)
 tgt = pd.read_parquet(tgt_fn)
 
-ws_dir = Path('sequential-ws')
-flat_ws_dir = Path('flat-ws')
+ws_dir = Path('california_sequential-ws')
+flat_ws_dir = Path('california_flat-ws')
 
-primary_key = 'household_id'
-foreign_key = 'household_id'
+ctx_primary_key = 'household_id'
+tgt_foreign_key = 'household_id'
+tgt_primary_key = 'individual_id'
 
 # first generate a parent (flat) table "household"
 t0 = time.time()
 split(
     tgt_data=ctx,
-    tgt_primary_key=primary_key,
+    tgt_primary_key=ctx_primary_key,
     workspace_dir=flat_ws_dir,
 )
 analyze(workspace_dir=flat_ws_dir)
@@ -50,9 +53,10 @@ print(f'"household" - Sample: {ctx.shape[0]}; Preprocessing: {pt:.3f} s, Trainin
 t0 = time.time()
 split(
     tgt_data=tgt,
-    tgt_context_key=foreign_key,
+    tgt_context_key=tgt_foreign_key,
+    tgt_primary_key=tgt_primary_key,
     ctx_data=ctx,
-    ctx_primary_key=primary_key,
+    ctx_primary_key=ctx_primary_key,
     workspace_dir=ws_dir,
 )
 analyze(workspace_dir=ws_dir)
@@ -61,7 +65,8 @@ pt = time.time() - t0
 t0 = time.time()
 train(
     max_training_time=300,
-    workspace_dir=ws_dir
+    workspace_dir=ws_dir,
+#    differential_privacy={'max_epsilon':10},
 )
 tt = time.time() - t0
 t0 = time.time()
