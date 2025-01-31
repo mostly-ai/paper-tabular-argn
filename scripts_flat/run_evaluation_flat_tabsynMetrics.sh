@@ -2,10 +2,10 @@
 # calculate quality metrics using tabsyn repo https://github.com/amazon-science/tabsyn
 
 # Define the dataset name (replace with the actual dataset name)
-DATANAMES=("adult" "acs-income")
+DATANAMES=("adult")
 
 # List of models to loop over
-MODELS=("mostly" "tabddpm" "tabsyn" "stasy")
+MODELS=("TabARGN" "tabsyn" "tabmt" "stasy")
 
 # Loop over each model
 for METHOD_NAME in "${MODELS[@]}"
