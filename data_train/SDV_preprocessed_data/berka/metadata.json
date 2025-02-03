@@ -1,0 +1,53 @@
+{
+    "tables": {
+        "berka": {
+            "primary_key": "trans_id",
+            "columns": {
+                "account_id": {
+                    "sdtype": "id"
+                },
+                "district_id": {
+                    "sdtype": "numerical"
+                },
+                "frequency": {
+                    "sdtype": "categorical"
+                },
+                "date_x": {
+                    "sdtype": "datetime",
+                    "datetime_format": "%Y-%m-%d"
+                },
+                "trans_id": {
+                    "sdtype": "id"
+                },
+                "date_y": {
+                    "sdtype": "datetime",
+                    "datetime_format": "%Y-%m-%d"
+                },
+                "type": {
+                    "sdtype": "categorical"
+                },
+                "operation": {
+                    "sdtype": "categorical"
+                },
+                "amount": {
+                    "sdtype": "numerical"
+                },
+                "balance": {
+                    "sdtype": "numerical"
+                },
+                "k_symbol": {
+                    "sdtype": "categorical"
+                },
+                "bank": {
+                    "sdtype": "categorical"
+                },
+                "account": {
+                    "sdtype": "numerical"
+                }
+            },
+            "sequence_key": "account_id"
+        }
+    },
+    "relationships": [],
+    "METADATA_SPEC_VERSION": "V1"
+}
